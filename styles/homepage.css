@@ -40,13 +40,23 @@
 
 tr{
     height: 60px;
+    padding-left: 50px;
+}
+
+.sidebar-twitter-icon {
+    padding-left: 30px;
 }
 
 .sidebar-button {
     display: block;
     width: 400px;
-    align-items: left;
     border: none;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.sidebar-button:hover{
+    background-color: grey;
 }
 
 .sidebar-anchor {
