@@ -148,14 +148,21 @@ body{
     background-color: lightcoral;
 }
 
+.home-bar-container {
+    position: sticky;
+    top: 0px;
+    background: white;
+    height: 50px;
+    padding-top: 5px;
+}
+
 #home-bar {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40px;
-    position: sticky;
-    top: 0px;
+    
     background-color: rgb(199, 169, 135);
     border-radius: 10px;
 }
