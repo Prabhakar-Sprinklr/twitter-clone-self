@@ -1,5 +1,129 @@
-.profile-overview {
-
+.home-container {
+    width: 80vw;
+    margin: 0 auto 0;
 }
 
-.profile
+.user-profile-information {
+    flex: 0.4;
+    background-color: aliceblue;
+    height: 100vh;
+    border-right: 2px solid grey;
+    /* border-radius: 30px; */
+}
+
+.profile-information-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 70%;
+    margin: auto;
+}
+
+.profile-dp-main:hover{
+    transform: scale(1.1);
+}
+
+.friend-list-container {
+    flex: 0.6;
+    background-color: aliceblue;
+    height: 100vh;
+    overflow-y: scroll;
+    border-left: 2px solid grey;
+}
+
+.friend-list-header-container {
+    position: sticky;
+    top: 0%;
+    background: white;
+    height: 50px;
+    padding-top: 15px;
+}
+
+.friend-list-header {
+    /* position: sticky;
+    top: 1%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+    width: 80%;
+    margin: 0 auto 0;
+    height: 2.5rem;
+    border-radius: 10px;
+}
+
+.friend-list {
+    margin: 10px auto 10px 20px;
+}
+
+.friend-entity {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 90%;
+}
+
+.profile-pic-container {
+    flex: 0.2;
+}
+
+.friend-details-container {
+    width: 100%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.friend-follow-button-container{
+    flex: 0.2;
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    font-size: medium;
+    font-weight: 600;
+}
+
+.userid {
+    font-size: small;
+    color: darkslategrey;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.user-profile-username{
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.user-profile-userid{
+    font-size:1.5em;
+    color: darkslategrey;
+}
+
+.status {
+    font-size: 1.2em;
+    color: rgb(48, 12, 12);
+}
+
+.follow-button {
+    height: 30px;
+    width: 80px;
+    background-color: lightblue;
+    float: right;
+    border-radius: 20px;
+}
+
+.disabled-follow-button {
+    background-color: darkgrey;
+    color: wheat;
+    pointer-events: none;
+    border: 1px solid black; 
+}

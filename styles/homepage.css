@@ -44,7 +44,12 @@ body{
     padding-left: 10px;
     border-left: 1px solid gray;
     border-radius: 10px;
+    overflow-y: scroll;
 }
+
+.widget-container::-webkit-scrollbar {
+    display: none;
+  }
 
 #page-header{
     position: sticky;
@@ -52,10 +57,14 @@ body{
     z-index: 1000;
 }
 
+.header-twitter-icon-link:hover {
+    cursor: pointer;
+}
+
 #header-twitter-icon-container{
     padding-left: 50px;
     background-color: aqua;
-    border-radius: 20px;
+    /* border-radius: 20px; */
 }
 
 #sidebar-option-list {
@@ -99,10 +108,21 @@ body{
 .sidebar-anchor-button:hover {
     cursor:pointer;
     background-color: grey;
+    color: white;
 }
 
 .sidebar-button:hover{
     background-color: grey;
+    color: white;
+}
+
+.material-icons {
+    margin-right: 20px;
+}
+
+.sidebar-navigation-link {
+    text-decoration: none;
+    color: black;
 }
 
 .sidebar-anchor {
@@ -183,9 +203,13 @@ body{
 #tweet-box-tweet-button {
     height: 30px;
     width: 80px;
-    background-color: lightblue;
+    background-color: #1DA1F2;
     float: right;
     border-radius: 20px;
+}
+
+#tweet-box-tweet-button:hover{
+    background-color: lightcoral;
 }
 
 .tweet {
@@ -214,10 +238,6 @@ body{
     color: grey;
 }
 
-.tweet-image-container {
-    /* border: 1px solid black; */
-}
-
 .tweet-image {
     display: block;
     margin: auto;
@@ -239,6 +259,7 @@ body{
 
 .widget-iframe {
     width: 95%;
+    height: 250px;
     margin : 5px auto 5px;
 }
 

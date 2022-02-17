@@ -6,42 +6,809 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../styles/homepage.css">
         <link rel="stylesheet" href="../styles/profile-page.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Profile Page</title>
     </head>
     <body>
-        <div class="home-container">
-
-
-            <div class="sidebar-container">
-                User Profile like Slack
-                <div id="home-bar">
-                    <h2>PROFILE</h2>
-                </div>
-
-                <div class="profile-overview">
-                    Image with username, userhandle and buttons to change profile pic or edit profile
-                    Center alligned
-
-                    <img class="profile-picture" src="../resources/batman-dp.jpeg" alt="../resources/default-dp.jpeg">
-
-                </div>
-
-                <div>
-                    Some additional data, like say work place etc.
-                </div>
-
+        <header id="page-header">
+            <div id="header-twitter-icon-container">
+                <a href="../index.html" class="header-twitter-icon-link">
+                    <i class="fa fa-twitter sidebar-git twitter-icon" style="font-size:48px;color:blue"></i> 
+                </a>
             </div>
+        </header>
+        <section class="home-container">
 
+            <section class="user-profile-information">
+                <div class="friend-list-header-container">
+                    <header class="friend-list-header" > PROFILE INFORMATION </header>
+                </div>
+                <section class="profile-information-container">
+                    <div>
+                        <a href="../resources/batman-dp.jpeg">
+                            <img class="tweet-image profile-dp-main" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                        </a>
+                    </div>
+                    <address>
+                        <div class="user-profile-username center-text">PRABHAKAR KUMAR</div>
+                        <div class="user-profile-userid center-text">@PrabhakarKumar</div>
+                    </address>
+                    <div class="status center-text">" Learning Frontend Dev :-) "</div>
+                </section>
+            </section>
 
-            <div class="feed-container">
-                Firend List as Some Grid pattern, preferrably responsive like number of columns if change on width then better
-                Must be scrollable like the feed.
-            </div>
+            <section class="friend-list-container">
+                <div class="friend-list-header-container">
+                    <header class="friend-list-header" > FOLLOWERS LIST </header>
+                </div>
+                <main class="friend-list">
+                    <ul id="sidebar-option-list">
 
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
 
-            <div class="widget-container">
-                Some additional informations
-            </div>
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button disabled-follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button disabled-follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+
+                        <!-- User Starts here -->
+                        <li>
+                            <article class="friend-entity">
+                                <div class="profile-pic-container">
+                                    <img class="tweet-profile-dp" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                                </div>
+                                <div class="friend-details-container">
+                                    <address class="username">
+                                        BATMAN CLONE
+                                    </address>
+                                    <address class="userid">BatID</address>
+                                </div>
+                                <div class="friend-follow-button-container">
+                                    <button type="button" class="follow-button"> Follow </button>
+                                </div>
+                            </article>
+                        </li>
+                        <!-- User ends here -->
+                        
+
+                    </ul>
+                </main>
+            </main>
+        </section>
 
 
         </div>
