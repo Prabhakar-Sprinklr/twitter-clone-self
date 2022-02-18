@@ -121,6 +121,10 @@
     border-radius: 20px;
 }
 
+.follow-button:hover{
+    cursor: pointer;
+}
+
 .disabled-follow-button {
     background-color: darkgrey;
     color: wheat;

@@ -1,0 +1,53 @@
+.list-grid-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    padding-right: 10px;
+}
+
+.view-toggle-button {
+    display: inline-block;
+}
+
+.grid-view-toggle-button:hover{
+    cursor: pointer;
+}
+
+.list-item-grid-view {
+    display: inline-block;
+    flex: 1 1 150px;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid lightgrey;
+}
+
+.friend-entity-grid-view{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-pic-container-grid-view{
+    width: max-content;
+}
+
+.friend-details-container-grid-view{
+    align-items: center;
+    width: fit-content;
+    padding-left: 0px;
+}
+
+.friend-follow-button-container-grid-view{
+    width: fit-content;
+}
+
+.username-grid-view {
+    width: fit-content;
+}
+
+.userid-grid-view {
+    width: fit-content;
+}

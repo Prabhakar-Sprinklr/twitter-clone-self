@@ -62,8 +62,11 @@ body{
 }
 
 #header-twitter-icon-container{
+    display: flex;
     padding-left: 50px;
     background-color: aqua;
+    justify-content: space-between;
+    align-items: center;
     /* border-radius: 20px; */
 }
 
