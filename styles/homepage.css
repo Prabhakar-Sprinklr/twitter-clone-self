@@ -70,7 +70,7 @@ body{
     /* border-radius: 20px; */
 }
 
-#sidebar-option-list {
+.sidebar-option-list {
     list-style-type: none;
 }
 
