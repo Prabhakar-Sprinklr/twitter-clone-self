@@ -70,7 +70,7 @@ body{
     /* border-radius: 20px; */
 }
 
-#sidebar-option-list {
+.sidebar-option-list {
     list-style-type: none;
 }
 
@@ -229,6 +229,11 @@ body{
     flex-direction: row;
     align-items: flex-start;
     margin: 5px 0px 5px 0px;
+}
+
+.tweet-content{
+    flex:1;
+    margin-right: 0px;
 }
 
 .tweet-profile-dp {

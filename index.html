@@ -29,8 +29,8 @@
                     <div> 
                         <img class="profile-dp" src="./resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">     
                     </div>
-                    <section class="new-tweet-box">
-                        <textarea id="new-tweet-input" name="tweet">Write Something !</textarea>
+                    <form name="newtweet" class="new-tweet-box">
+                        <textarea id="new-tweet-input" name="tweettext">Write Something !</textarea>
                         <aside>
                             <button class="tweet-box-button">
                                 <span class="material-icons">image</span>
@@ -41,14 +41,14 @@
                             <button class="tweet-box-button">
                                 <span class="material-icons">emoji_emotions</span>
                             </button>
-                            <button id="tweet-box-tweet-button">Tweet</button>
+                            <button type="submit" id="tweet-box-tweet-button">Tweet</button>
                         </aside>
-                    </section>
+                    </form>
                 </section>
 
                 <section class="tweet-feed">
 
-                    <!-- Here starts a single tweet. -->
+                    <!-- Here starts a single tweet.
                     <article class='tweet'>
                         <div>
                             <img class="tweet-profile-dp" src="./resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
@@ -77,100 +77,7 @@
                         </div>
 
                     </article>
-                    <!-- Here ends a single tweet. -->
-
-                    <!-- Here starts a single tweet. -->
-                    <article class='tweet'>
-                        <div>
-                            <img class="tweet-profile-dp" src="./resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
-                        </div>
-                        <div>
-                            <div>
-                                <address> <span class="username-text">Username</span> <span class="userhandle-text">@userhandle</span></address>
-                                <div>Lorem Ipsum is simply dummy text of the printing and 
-                                    typesetting industry. Lorem Ipsum has been the industry's 
-                                    standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a 
-                                    type specimen book.
-                                </div>
-                            </div>
-                            <image class="tweet-image-container">
-                                <img class="tweet-image" src="./resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
-                            </image>
-
-                            <aside class="tweet-option-button-container">
-                                <button class="tweet-option-button"><span class="material-icons">thumb_up</span></button>
-                                <button class="tweet-option-button"><span class="material-icons">share</span></button>
-                                <button class="tweet-option-button"><span class="material-icons">chat</span></button>
-                                <button class="tweet-option-button"><span class="material-icons">upload</span></button>
-                            </aside>
-
-                        </div>
-
-                    </article>
-                    <!-- Here ends a single tweet. -->
-
-                    <!-- Here starts a single tweet. -->
-                    <article class='tweet'>
-                        <div>
-                            <img class="tweet-profile-dp" src="./resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
-                        </div>
-                        <div>
-                            <div>
-                                <address> <span class="username-text">Username</span> <span class="userhandle-text">@userhandle</span></address>
-                                <div>Lorem Ipsum is simply dummy text of the printing and 
-                                    typesetting industry. Lorem Ipsum has been the industry's 
-                                    standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a 
-                                    type specimen book.
-                                </div>
-                            </div>
-                            <image class="tweet-image-container">
-                                <img class="tweet-image" src="./resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
-                            </image>
-
-                            <aside class="tweet-option-button-container">
-                                <button class="tweet-option-button"><span class="material-icons">thumb_up</span></button>
-                                <button class="tweet-option-button"><span class="material-icons">share</span></button>
-                                <button class="tweet-option-button"><span class="material-icons">chat</span></button>
-                                <button class="tweet-option-button"><span class="material-icons">upload</span></button>
-                            </aside>
-
-                        </div>
-
-                    </article>
-                    <!-- Here ends a single tweet. -->
-
-                    <!-- Here starts a single tweet. -->
-                    <article class='tweet'>
-                        <div>
-                            <img class="tweet-profile-dp" src="./resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
-                        </div>
-                        <div>
-                            <div>
-                                <address> <span class="username-text">Username</span> <span class="userhandle-text">@userhandle</span></address>
-                                <div>Lorem Ipsum is simply dummy text of the printing and 
-                                    typesetting industry. Lorem Ipsum has been the industry's 
-                                    standard dummy text ever since the 1500s, when an unknown 
-                                    printer took a galley of type and scrambled it to make a 
-                                    type specimen book.
-                                </div>
-                            </div>
-                            <image class="tweet-image-container">
-                                <img class="tweet-image" src="./resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
-                            </image>
-
-                            <aside class="tweet-option-button-container">
-                                <button class="tweet-option-button"><span class="material-icons">thumb_up</span></button>
-                                <button class="tweet-option-button"><span class="material-icons">share</span></button>
-                                <button class="tweet-option-button"><span class="material-icons">chat</span></button>
-                                <button class="tweet-option-button"><span class="material-icons">upload</span></button>
-                            </aside>
-
-                        </div>
-
-                    </article>
-                    <!-- Here ends a single tweet. -->
+                    <Here ends a single tweet. -->
 
                 </section>
 
@@ -179,7 +86,7 @@
 
             <nav class="section-container sidebar-container">
 
-                    <ul id="sidebar-option-list">
+                    <ul class="sidebar-option-list">
                         <li>
                             <a class="sidebar-navigation-link">
                                 <div class="sidebar-anchor-button sidebar-active-option">
@@ -251,12 +158,13 @@
 
             <aside class="section-container widget-container">
                 <iframe class="widget-iframe" src="https://twitframe.com/show?url=https%3A%2F%2Ftwitter.com%2Fjack%2Fstatus%2F20"></iframe>
-                <iframe class="widget-iframe" src="https://www.youtube.com/embed/D_uLM5i0Z4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- <iframe class="widget-iframe" src="https://www.youtube.com/embed/D_uLM5i0Z4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                <iframe class="widget-iframe" src="https://www.youtube.com/embed/XIOLqoPHCJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <iframe class="widget-iframe" src="https://twitframe.com/show?url=https%3A%2F%2Ftwitter.com%2Fjack%2Fstatus%2F20"></iframe>
-                <iframe class="widget-iframe" src="https://www.youtube.com/embed/D_uLM5i0Z4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- <iframe class="widget-iframe" src="https://www.youtube.com/embed/D_uLM5i0Z4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
             </aside>
 
-
+            <script src="../script/homepage.js"></script>
         </section>
     </body>
 </html>
