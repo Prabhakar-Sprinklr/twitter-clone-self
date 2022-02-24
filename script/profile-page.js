@@ -21,3 +21,5 @@ function toggleView(){
         list_view_container.style.display="";
     }
 }
+
+

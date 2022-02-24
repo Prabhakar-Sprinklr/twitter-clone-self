@@ -231,6 +231,11 @@ body{
     margin: 5px 0px 5px 0px;
 }
 
+.tweet-content{
+    flex:1;
+    margin-right: 0px;
+}
+
 .tweet-profile-dp {
     height: 40px;
     width: 40px;
