@@ -30,15 +30,18 @@
                         <img class="profile-dp" src="./resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">     
                     </div>
                     <form name="newtweet" class="new-tweet-box">
-                        <textarea id="new-tweet-input" name="tweettext">Write Something !</textarea>
-                        <aside>
-                            <button class="tweet-box-button">
+                        <textarea class="new-tweet-input" name="tweettext">Write Something !</textarea>
+                        <input type="text" name="imagenamedisplay" class="new-image-input">
+
+                            <label class="upload-image-button">
+                                <input type="file"/ name="imageuploadinput">
                                 <span class="material-icons">image</span>
-                            </button>
-                            <button class="tweet-box-button">
+                            </label>
+                            
+                            <button class="tweet-box-button" type="button">
                                 <span class="material-icons">attachment</span>
                             </button>
-                            <button class="tweet-box-button">
+                            <button class="tweet-box-button" type="button">
                                 <span class="material-icons">emoji_emotions</span>
                             </button>
                             <button type="submit" id="tweet-box-tweet-button">Tweet</button>

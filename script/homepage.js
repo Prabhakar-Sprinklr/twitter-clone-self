@@ -1,23 +1,31 @@
 model = {
-    tweet_collection:new Map(),
-    user_data:new Map(),
     
     init(){
-        this.user_data.set("userhandle",{
-            userhandle:"userhandle",
-            username:"Username",
-            profilepic:"./resources/batman-dp.jpeg"
-        });
-        for(let i=0;i<5;i++){
-            controller.addTweet(
-                "userhandle",
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                "./resources/batman-dp.jpeg",
-                i
-            );
+
+        // TO BE DONE WHEN THE APP IS RUNNED THE VERY FIRST TIME
+        if(localStorage.tweet_data === undefined){
+            this.tweet_collection=new Map();
+            this.user_data=new Map();
+            console.log("Here");
+            this.user_data.set("userhandle",{
+                userhandle:"userhandle",
+                username:"Username",
+                profilepic:"./resources/batman-dp.jpeg"
+            });
+            for(let i=0;i<5;i++){
+                controller.addTweet(
+                    "userhandle",
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                    "./resources/batman-dp.jpeg",
+                    i
+                );
+            }
+            this.saveToLocal();
+            return;
         }
-        console.log(this.user_data,this.user_data.size);
-        console.log(this.tweet_collection,this.tweet_collection.size);
+
+        this.tweet_collection=new Map(JSON.parse(localStorage.tweet_data));
+        this.user_data=new Map(JSON.parse(localStorage.user_data));
     },
 
     getAllUsers(){
@@ -25,15 +33,54 @@ model = {
     },
 
     getAllTweet(){
-        return this.tweet_collection;
+        if(this.tweet_collection_list!==undefined) return this.tweet_collection_list;
+        this.tweet_collection_list=[];
+        for(let value of this.tweet_collection.values()){
+            let userid=value.userhandle,
+                user_entity=this.user_data.get(userid),
+                username=user_entity.username,
+                profilepic=user_entity.profilepic,
+                text=value.text,
+                image=value.image,
+                timestamp=value.timestamp;
+            this.tweet_collection_list.push({
+                username:username,
+                userid:userid,
+                profilepic:profilepic,
+                text:text,
+                image:image,
+                timestamp:timestamp,
+            });
+        }
+        console.log("Sort called");
+        this.tweet_collection_list.sort(function(a, b) {return b.timestamp - a.timestamp;
+        });
+
+
+        return this.tweet_collection_list;
     },
 
     addTweet({unique_id,content}){
         this.tweet_collection.set(unique_id,content);
+        let user_entity=this.getUserEntity(content.userhandle);
+        this.tweet_collection_list.unshift({
+            username:user_entity.username,
+            userid:content.userhandle,
+            profilepic:user_entity.profilepic,
+            text:content.text,
+            image:content.image,
+            timestamp:content.timestamp,
+        })
+        this.saveToLocal();
     },
 
     getUserEntity(userid){
         return this.user_data.get(userid);
+    },
+
+    saveToLocal(){
+        localStorage.tweet_data = JSON.stringify(Array.from(this.tweet_collection.entries()));
+        localStorage.user_data = JSON.stringify(Array.from(this.user_data.entries()));
     },
 
 }
@@ -42,15 +89,34 @@ view = {
     init(){
         this.tweet_list_container = document.querySelector(".tweet-feed");
         this.new_tweet_form = document.forms.newtweet;
+        this.image_input = this.new_tweet_form.elements.imageuploadinput;
+        this.image_text_show = this.new_tweet_form.elements.imagenamedisplay;
+        
         this.new_tweet_form.elements.tweettext.addEventListener("click",function(){
             this.value="";
         })
 
         this.new_tweet_form.addEventListener("submit",function(event){
             event.preventDefault();
-            controller.addNewTweet();
+            let tweet_text = view.new_tweet_form.elements.tweettext.value;
+
+            //Image Saving is handled here as it is done here in this case 
+            //ideally should just be some fetch call.
+            let image = (view.image_input.files.length>0)?view.image_input.files[0].name:"batman-dp.jpeg";
+            image = "./resources/"+image;
+            //Image Name with local repo path is good working.
+
+            let userhandle = "userhandle";
+            controller.addNewTweet(userhandle,tweet_text,image);
+            view.image_text_show.value="";
+            view.image_text_show.style.display="none";
             let clickevent = new Event("click");
             view.new_tweet_form.elements.tweettext.dispatchEvent(clickevent);
+        })
+
+        this.image_input.addEventListener("change",function(){
+            view.image_text_show.value=view.image_input.files[0].name;
+            view.image_text_show.style.display="block";
         })
 
         this.renderTweets();
@@ -62,8 +128,7 @@ view = {
         let tweets = controller.getTweets();
         console.log(tweets);
         this.tweet_list_container.innerHTML="";
-
-        for(let tweet of tweets){
+        tweets.map(function(tweet){
             let tweet_content = 
                 `<article class='tweet'>
                     <div>
@@ -89,17 +154,8 @@ view = {
 
                 </article>`
             this.tweet_list_container.innerHTML+=tweet_content;
-        }
+        },this);
     },
-
-    getNewTweetData(){
-        let tweet_text = this.new_tweet_form.elements.tweettext.value;
-        let userhandle = "userhandle";
-        return {
-            userhandle:userhandle,
-            tweet_text:tweet_text,
-        };
-    }
 }
 
 controller = {
@@ -109,30 +165,7 @@ controller = {
     },
 
     getTweets(){
-        let user_data=model.getAllUsers();
-        let tweet_list=model.getAllTweet();
-        let return_collection =[];
-        for(let [key,value] of tweet_list.entries()){
-            let userid=value.userhandle;
-            let user_entity=user_data.get(userid);
-            let username=user_entity.username;
-            let profilepic=user_entity.profilepic;
-            let text=value.text;
-            let image=value.image;
-            let timestamp=value.timestamp;
-            return_collection.push({
-                username:username,
-                userid:userid,
-                profilepic:profilepic,
-                text:text,
-                image:image,
-                timestamp:timestamp,
-            });
-        }
-        return_collection.sort(function(a, b) { 
-            return b.timestamp - a.timestamp;
-        });
-        return return_collection;
+        return model.getAllTweet();
     },
 
     addTweet(userhandle,tweet_text,tweet_image="./resources/batman2.jpeg",index=0){
@@ -151,11 +184,8 @@ controller = {
             });
     },
 
-    addNewTweet(){
-        //Get data from view form
-        let {userhandle,tweet_text}=view.getNewTweetData();
-        //Form the new tweet and call model add tweet
-        this.addTweet(userhandle,tweet_text);
+    addNewTweet(userhandle,tweet_text,image){
+        this.addTweet(userhandle,tweet_text,image);
         view.renderTweets();
     }
 }
