@@ -35,8 +35,9 @@ model = {
     getAllTweet(){
         if(this.tweet_collection_list!==undefined) return this.tweet_collection_list;
         this.tweet_collection_list=[];
-        for(let value of this.tweet_collection.values()){
+        for(let [key,value] of this.tweet_collection.entries()){
             let userid=value.userhandle,
+                id=key,
                 user_entity=this.user_data.get(userid),
                 username=user_entity.username,
                 profilepic=user_entity.profilepic,
@@ -44,6 +45,7 @@ model = {
                 image=value.image,
                 timestamp=value.timestamp;
             this.tweet_collection_list.push({
+                id:id,
                 username:username,
                 userid:userid,
                 profilepic:profilepic,
@@ -64,6 +66,7 @@ model = {
         this.tweet_collection.set(unique_id,content);
         let user_entity=this.getUserEntity(content.userhandle);
         this.tweet_collection_list.unshift({
+            id:unique_id,
             username:user_entity.username,
             userid:content.userhandle,
             profilepic:user_entity.profilepic,
@@ -83,6 +86,19 @@ model = {
         localStorage.user_data = JSON.stringify(Array.from(this.user_data.entries()));
     },
 
+    deleteTweet(id){
+        this.tweet_collection.delete(id);
+        this.tweet_collection_list=this.tweet_collection_list.filter(function(tweet_item){
+            return tweet_item.id!==id;
+        });
+        this.saveToLocal();
+        console.log("Deletion Successful!")
+    },
+
+    getTweetText(id){
+        return this.tweet_collection.get(id).text;
+    },
+
 }
 
 view = {
@@ -91,10 +107,7 @@ view = {
         this.new_tweet_form = document.forms.newtweet;
         this.image_input = this.new_tweet_form.elements.imageuploadinput;
         this.image_text_show = this.new_tweet_form.elements.imagenamedisplay;
-        
-        this.new_tweet_form.elements.tweettext.addEventListener("click",function(){
-            this.value="";
-        })
+        this.tweet_feed = document.querySelector(".tweet-feed");
 
         this.new_tweet_form.addEventListener("submit",function(event){
             event.preventDefault();
@@ -110,13 +123,20 @@ view = {
             controller.addNewTweet(userhandle,tweet_text,image);
             view.image_text_show.value="";
             view.image_text_show.style.display="none";
-            let clickevent = new Event("click");
-            view.new_tweet_form.elements.tweettext.dispatchEvent(clickevent);
+            view.new_tweet_form.elements.tweettext.value="";
         })
 
         this.image_input.addEventListener("change",function(){
             view.image_text_show.value=view.image_input.files[0].name;
             view.image_text_show.style.display="block";
+        })
+
+        this.tweet_feed.addEventListener("click",function(event){
+            // console.log("ANY TWEET CLICKED");
+            console.log(event.target.dataset.task);
+            console.log(event.target.dataset.tweetid);
+            controller.takeTweetAction(event.target.dataset.task,event.target.dataset.tweetid);
+            //console.log(event.currentTarget);
         })
 
         this.renderTweets();
@@ -146,8 +166,8 @@ view = {
                         <aside class="tweet-option-button-container">
                             <button class="tweet-option-button"><span class="material-icons">thumb_up</span></button>
                             <button class="tweet-option-button"><span class="material-icons">share</span></button>
-                            <button class="tweet-option-button"><span class="material-icons">chat</span></button>
-                            <button class="tweet-option-button"><span class="material-icons">upload</span></button>
+                            <button class="tweet-option-button" data-task="edit" data-tweetid="${tweet.id}"><span class="material-icons" data-task="edit" data-tweetid="${tweet.id}">drive_file_rename_outline</span></button>
+                            <button class="tweet-option-button" data-task="delete" data-tweetid="${tweet.id}"><span class="material-icons" data-task="delete" data-tweetid="${tweet.id}">delete</span></button>
                         </aside>
 
                     </div>
@@ -155,6 +175,10 @@ view = {
                 </article>`
             this.tweet_list_container.innerHTML+=tweet_content;
         },this);
+    },
+
+    fillNewTweetForm(text){
+        this.new_tweet_form.elements.tweettext.value=text;
     },
 }
 
@@ -187,7 +211,22 @@ controller = {
     addNewTweet(userhandle,tweet_text,image){
         this.addTweet(userhandle,tweet_text,image);
         view.renderTweets();
-    }
+    },
+
+    takeTweetAction(task,id){
+        console.log("Here");
+        if(task==="delete"){
+            console.log("Here1");
+            model.deleteTweet(id);
+        }
+        else if(task==="edit"){
+            //See if getting file also works?
+            let text=model.getTweetText(id);
+            view.fillNewTweetForm(text);
+            model.deleteTweet(id);
+        }
+        view.renderTweets();
+    },
 }
 
 controller.init();

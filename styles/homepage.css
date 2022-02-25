@@ -323,3 +323,7 @@ input[type="file"] {
     background-color: rgb(156, 156, 156);
     border-color: black;
 }
+
+.material-icons{
+    margin: 0px 10px;
+}
