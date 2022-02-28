@@ -42,7 +42,13 @@
                 <section class="profile-information-container">
                     <div>
                         <a href="../resources/batman-dp.jpeg">
-                            <img class="tweet-image profile-dp-main" src="../resources/batman-dp.jpeg" alt="./resources/default-dp.jpeg">
+                            <div class="image-container-div">
+                                <img class="tweet-image profile-dp-main" src="../resources/batman-dp.jpeg" alt="../resources/default-dp.jpeg">
+                                <label class="upload-image-button change-image">
+                                    <input type="file"/ name="imagechangeinput">
+                                    <span class="material-icons">image</span>
+                                </label>
+                            </div>
                         </a>
                     </div>
                     <address>
@@ -1437,6 +1443,6 @@
 
         </div>
 
-        <script src="../script/profile-page.js"></script>
+        <script type="module" src="../script/profile-page.js"></script>
     </body>
 </html>

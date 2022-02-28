@@ -21,9 +21,9 @@
     margin: auto;
 }
 
-.profile-dp-main:hover{
+/* .profile-dp-main:hover{
     transform: scale(1.1);
-}
+} */
 
 .friend-list-container {
     flex: 0.6;
@@ -190,4 +190,20 @@
 
 .userid-grid-view {
     width: fit-content;
+}
+
+.image-container-div{
+    position: relative;
+}
+
+.image-container-div:hover{
+    transform: scale(1.1);
+}
+
+.change-image{
+    position: absolute;
+    top: 88%;
+    left: 73%;
+    border: none;
+    background: inherit;
 }
