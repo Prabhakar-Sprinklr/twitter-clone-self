@@ -327,3 +327,7 @@ input[type="file"] {
 .material-icons{
     margin: 0px 10px;
 }
+
+.preview-image{
+    display: none;
+}
