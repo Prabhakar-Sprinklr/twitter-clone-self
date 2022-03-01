@@ -9,6 +9,7 @@ let view={
         this.image_change_button = document.querySelector('input[name="imagechangeinput"]');
         this.profile_pic = document.querySelector(".profile-dp-main");
         this.list_view_container.style.display = "none";
+        let follow_button_list = document.querySelectorAll(".follow-button");
 
         this.button_element.addEventListener("click",function(){
             controller.toggleView(view.button_element.value);
@@ -16,7 +17,22 @@ let view={
 
         this.image_change_button.addEventListener("change",function(){
             let filename = "./resources/"+view.image_change_button.files[0].name;
-            controller.changeProfilePic(filename);
+            view.profile_pic.src = "."+filename;
+            console.log("Here1");
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    if(confirm("Do you wanna proceed with picture change ?")==true)
+                        controller.changeProfilePic(filename);
+                    else
+                        view.render();
+                });
+            });
+        })
+
+        follow_button_list.forEach(function(button){
+            button.addEventListener("click",function(){
+                this.classList.add("disabled-follow-button");
+            })
         })
 
         view.render();

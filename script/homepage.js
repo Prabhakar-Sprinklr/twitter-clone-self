@@ -1,4 +1,5 @@
 import model from './data.js';
+import homepage_state from './homepage_state.js';
 
 let view = {
     init(){
@@ -6,8 +7,15 @@ let view = {
         this.new_tweet_form = document.forms.newtweet;
         this.image_input = this.new_tweet_form.elements.imageuploadinput;
         this.image_text_show = this.new_tweet_form.elements.imagenamedisplay;
-        this.tweet_feed = document.querySelector(".tweet-feed");
-        let profile_pic = document.querySelector(".profile-dp");
+        this.preview_image = document.querySelector(".preview-image");
+        this.remove_tweet_picture = document.querySelector(".remove-tweet-picture");
+        this.main_content_div = document.querySelector(".feed-container");
+
+        let tweet_feed = document.querySelector(".tweet-feed"),
+            profile_pic = document.querySelector(".profile-dp");
+
+        this.remove_tweet_picture.style.display="none";
+
 
         profile_pic.src = controller.getCurrentUserProfilePic();
 
@@ -17,28 +25,47 @@ let view = {
 
             //Image Saving is handled here as it is done here in this case 
             //ideally should just be some fetch call.
-            let image = (view.image_input.files.length>0)?view.image_input.files[0].name:"batman-dp.jpeg";
-            image = "./resources/"+image;
-            //Image Name with local repo path is good working.
+
+            let image = (homepage_state.image===undefined)?"./resources/batman-dp.jpeg":homepage_state.image;
+
+            //Image Name with local repo path is working.
 
             let userhandle = "userhandle";
-            controller.addNewTweet(userhandle,tweet_text,image);
-            view.image_text_show.value="";
-            view.image_text_show.style.display="none";
+
+            if(controller.addNewTweet(userhandle,tweet_text,image)===false){
+                console.log("Here clicked");
+                return;
+            }
+
+            homepage_state.image=undefined;
+            homepage_state.image_name=undefined;
             view.new_tweet_form.elements.tweettext.value="";
+            view.image_text_show.style.display="none";
+            view.preview_image.style.display="none";
+            view.remove_tweet_picture.style.display="none";
         })
 
         this.image_input.addEventListener("change",function(){
-            view.image_text_show.value=view.image_input.files[0].name;
+            homepage_state.image_name=view.image_input.files[0].name;
+            view.image_text_show.value=homepage_state.image_name;
             view.image_text_show.style.display="block";
+            homepage_state.image="./resources/"+view.image_input.files[0].name;
+            view.preview_image.src = homepage_state.image;
+            view.preview_image.style.display="block";
+            view.remove_tweet_picture.style.display="";
         })
 
-        this.tweet_feed.addEventListener("click",function(event){
-            // console.log("ANY TWEET CLICKED");
-            console.log(event.target.dataset.task);
-            console.log(event.target.dataset.tweetid);
+        tweet_feed.addEventListener("click",function(event){
             controller.takeTweetAction(event.target.dataset.task,event.target.dataset.tweetid);
-            //console.log(event.currentTarget);
+        })
+
+        this.remove_tweet_picture.addEventListener("click",function(){
+            view.image_input.value="";
+            homepage_state.image=undefined;
+            homepage_state.image_name=undefined;
+            view.image_text_show.style.display="none";
+            view.preview_image.style.display="none";
+            view.remove_tweet_picture.style.display="none";
         })
 
         this.renderTweets();
@@ -81,12 +108,19 @@ let view = {
 
     fillNewTweetForm(text){
         this.new_tweet_form.elements.tweettext.value=text;
-    },
+        if(homepage_state.image===undefined) return;
+        this.image_text_show.value=homepage_state.image_name;
+        this.image_text_show.style.display="block";
+        this.preview_image.src = homepage_state.image;
+        this.preview_image.style.display="block";
+        this.remove_tweet_picture.style.display="";
+},
 }
 
 let controller = {
     init(){
         model.init();
+        homepage_state.init();
         view.init();
     },
 
@@ -111,21 +145,43 @@ let controller = {
     },
 
     addNewTweet(userhandle,tweet_text,image){
-        this.addTweet(userhandle,tweet_text,image);
+        let tweet_length = tweet_text.length;
+        if(tweet_length<=5){
+            alert("Tweet Text too short !");
+            return false;
+        }
+        else if(tweet_length>100){
+            alert("Too large a tweet !");
+            return false;
+        }
+        console.log(image);
+        if(homepage_state.tweet_id===undefined)
+            this.addTweet(userhandle,tweet_text,image);
+        else{
+            model.editTweet(homepage_state.tweet_id,tweet_text,image);
+            homepage_state.tweet_id=undefined;
+        }
         view.renderTweets();
+        return true;
     },
 
     takeTweetAction(task,id){
         console.log("Here");
         if(task==="delete"){
             console.log("Here1");
-            model.deleteTweet(id);
+            if (confirm("Do you want to delete the tweet ?") == true)
+                model.deleteTweet(id);
         }
         else if(task==="edit"){
             //See if getting file also works?
+            homepage_state.tweet_id=id;
             let text=model.getTweetText(id);
+            homepage_state.image=model.getTweetImage(id);
+            homepage_state.image_name=homepage_state.image.slice(homepage_state.image.lastIndexOf('/')+1);
+            console.log(homepage_state.image,homepage_state.image_name);
             view.fillNewTweetForm(text);
-            model.deleteTweet(id);
+            view.main_content_div.scrollTop=0;
+            //model.deleteTweet(id);
         }
         view.renderTweets();
     },

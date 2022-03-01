@@ -99,11 +99,30 @@ let model = {
         return this.tweet_collection.get(id).text;
     },
 
+    getTweetImage(id){
+        return this.tweet_collection.get(id).image;
+    },
+
     changeUserProfilePic(userhandle,filename){
         console.log(this.user_data);
         this.user_data.get(userhandle).profilepic=filename;
         this.saveToLocal();
     },
+
+    editTweet(id,text,image){
+        let tweet = this.tweet_collection.get(id);
+        tweet.text=text;
+        tweet.image=image;
+        let temp_tweet;
+        for(temp_tweet of this.tweet_collection_list){
+            if(temp_tweet.id===id)
+                break;
+        }
+        temp_tweet.text=text;
+        temp_tweet.image=image;
+        this.saveToLocal();
+    }
+
 
 }
 

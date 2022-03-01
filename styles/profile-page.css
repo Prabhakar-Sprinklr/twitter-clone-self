@@ -21,9 +21,9 @@
     margin: auto;
 }
 
-/* .profile-dp-main:hover{
-    transform: scale(1.1);
-} */
+.profile-dp-main{
+    border-radius: 130px;
+}
 
 .friend-list-container {
     flex: 0.6;
