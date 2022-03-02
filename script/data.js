@@ -10,20 +10,44 @@ let model = {
             this.user_data.set("userhandle",{
                 userhandle:"userhandle",
                 username:"Username",
-                profilepic:"./resources/batman-dp.jpeg"
+                profilepic:"./resources/batman-dp.jpeg",
+                followers:[],
+                following:[],
             });
+            for(let i=0;i<30;i++){
+                this.user_data.set("userhandle"+i,{
+                    userhandle:"userhandle"+i,
+                    username:"Username"+i,
+                    profilepic:"./resources/batman-dp.jpeg",
+                    followers:[],
+                    following:[],
+                });
+                if(i%4==0)
+                    this.addFollower("userhandle","userhandle"+i);
+                if(i%3==0)
+                    this.addFollower("userhandle"+i,"userhandle");
+            }
             for(let i=0;i<5;i++){
-                controller.addTweet(
-                    "userhandle",
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                    "./resources/batman-dp.jpeg",
-                    i
-                );
+                let tweet_text="Updated Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+                let tweet_image="./resources/batman-dp.jpeg";
+                let userhandle = "userhandle"
+                let user = model.getUserEntity(userhandle);
+                if(user===undefined) continue;
+                let timestamp=Date.now();
+                let unique_id=userhandle+"-"+timestamp+"-"+i;
+                let content = {
+                    userhandle:userhandle,
+                    text:tweet_text,
+                    image:tweet_image,
+                    timestamp:timestamp,
+                };
+                this.tweet_collection.set(unique_id,content);
             }
             this.saveToLocal();
             return;
         }
 
+        //Once the local storage is set up the above code doesnt run, and all reading is done from here.
         this.tweet_collection=new Map(JSON.parse(localStorage.tweet_data));
         this.user_data=new Map(JSON.parse(localStorage.user_data));
     },
@@ -81,9 +105,19 @@ let model = {
         return this.user_data.get(userid);
     },
 
+    getUserEntityShort(userid){
+        let full_entity=this.user_data.get(userid);;
+        let short_entity={
+            userhandle:full_entity.userhandle,
+            username:full_entity.username,
+            profilepic:full_entity.profilepic,
+        }
+        return short_entity;
+    },
+
     saveToLocal(){
         localStorage.tweet_data = JSON.stringify(Array.from(this.tweet_collection.entries()));
-        localStorage.user_data = JSON.stringify(Array.from(this.user_data.entries()));
+        this.saveUserDataToLocal();
     },
 
     deleteTweet(id){
@@ -121,6 +155,32 @@ let model = {
         temp_tweet.text=text;
         temp_tweet.image=image;
         this.saveToLocal();
+    },
+
+    addFollower(user1,user2){
+        let user_entity1=this.user_data.get(user1);
+        let user_entity2=this.user_data.get(user2);
+        user_entity1.following.push(user2);
+        user_entity2.followers.push(user1);
+    },
+
+    removeFollower(user1,user2){
+        let user_entity1=this.user_data.get(user1);
+        let user_entity2=this.user_data.get(user2);
+        user_entity1.following = user_entity1.following.filter(function(userid){
+            return userid!==user2;
+        });
+        user_entity2.followers = user_entity2.followers.filter(function(userid){
+            return userid!==user1;
+        })
+    },
+
+    getFollowerList(user1){
+        return this.getUserEntity(user1).following;
+    },
+
+    saveUserDataToLocal(){
+        localStorage.user_data = JSON.stringify(Array.from(this.user_data.entries()));
     }
 
 

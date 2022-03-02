@@ -22,7 +22,9 @@
 }
 
 .profile-dp-main{
-    border-radius: 130px;
+    height: 300px;
+    width: 300px;
+    border-radius: 150px;
 }
 
 .friend-list-container {
@@ -128,7 +130,7 @@
 .disabled-follow-button {
     background-color: darkgrey;
     color: wheat;
-    pointer-events: none;
+    /* pointer-events: none; */
     border: 1px solid black; 
 }
 

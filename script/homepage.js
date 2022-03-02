@@ -32,7 +32,7 @@ let view = {
 
             let userhandle = "userhandle";
 
-            if(controller.addNewTweet(userhandle,tweet_text,image)===false){
+            if(controller.addNewTweet({userhandle,tweet_text,image})===false){
                 console.log("Here clicked");
                 return;
             }
@@ -128,7 +128,7 @@ let controller = {
         return model.getAllTweet();
     },
 
-    addTweet(userhandle,tweet_text,tweet_image="./resources/batman2.jpeg",index=0){
+    addTweet({userhandle,tweet_text,image="./resources/batman2.jpeg",index=0}){
         let user = model.getUserEntity(userhandle);
         if(user===undefined) return;
         let timestamp=Date.now();
@@ -138,13 +138,13 @@ let controller = {
                 content:{
                     userhandle:userhandle,
                     text:tweet_text,
-                    image:tweet_image,
+                    image:image,
                     timestamp:timestamp,
                 },
             });
     },
 
-    addNewTweet(userhandle,tweet_text,image){
+    addNewTweet({userhandle,tweet_text,image}){
         let tweet_length = tweet_text.length;
         if(tweet_length<=5){
             alert("Tweet Text too short !");
@@ -156,7 +156,7 @@ let controller = {
         }
         console.log(image);
         if(homepage_state.tweet_id===undefined)
-            this.addTweet(userhandle,tweet_text,image);
+            this.addTweet({userhandle,tweet_text,image});
         else{
             model.editTweet(homepage_state.tweet_id,tweet_text,image);
             homepage_state.tweet_id=undefined;
@@ -173,9 +173,9 @@ let controller = {
                 model.deleteTweet(id);
         }
         else if(task==="edit"){
-            //See if getting file also works?
             homepage_state.tweet_id=id;
             let text=model.getTweetText(id);
+            // view.image_input.value=model.getTweetImage(id);
             homepage_state.image=model.getTweetImage(id);
             homepage_state.image_name=homepage_state.image.slice(homepage_state.image.lastIndexOf('/')+1);
             console.log(homepage_state.image,homepage_state.image_name);
